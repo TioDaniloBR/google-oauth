@@ -25,6 +25,7 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Simple Google OAuth using node and nest.js
 
 ## Installation
 
