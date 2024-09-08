@@ -18,17 +18,15 @@ export class AppController {
 
   @Get()
   @UseGuards(GoogleOauthGuard)
-  @UseGuards(middleware)
   async googleAuth(@Request() req) {}
 
   @Get('/google/callback')
   @UseGuards(AuthGuard('google'))
   googleAuthRedirect(@Req() req, @Res() res: Response) {
-    console.log('entrou no googlecallback');
     const user = req.user;
 
     const token = this.jwtService.sign({ user });
 
-    res.redirect(`${process.env.URL_CALLBACK_FE}?token-${token}`);
+    res.redirect(`${process.env.URL_CALLBACK_FE}?token=${token}`);
   }
 }
